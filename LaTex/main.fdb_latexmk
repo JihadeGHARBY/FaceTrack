@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1753207845.06196 "c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex" "main.pdf" "main" 1753207852.31244 2
+["pdflatex"] 1753211579.89561 "c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex" "main.pdf" "main" 1753211590.01698 2
   "Abdelaziz_BENTALEB.png" 1752852028 1211769 81121c82feafca57b7ead901089bb76b ""
   "Aziz_OUMOUACHA.png" 1752851992 1210815 aa4b79383bde4cd9abbbd14e374662b1 ""
   "C:/Users/jihad.DESKTOP-2OU65DA/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752756428 82011 97247c01f6bfb6f6d0c40fab12a08423 ""
@@ -214,11 +214,11 @@
   "FSA_logo.png" 1735232308 76534 64615381f938a24c5c0024de92daef48 ""
   "Jihade_GHARBY.png" 1752681508 1616824 8cb1eab34140afe9def6ce593986b19b ""
   "Mohamed_LEMSEIH.png" 1752852065 1301855 eedb98828a9aeb891acbed0482687c0c ""
-  "c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex" 1753207831 56649 721ca33e80924ab2bf64a94e2403b82d ""
-  "main.aux" 1753207851 20771 964ac54c3e401990261d36510a17b0b0 "pdflatex"
-  "main.out" 1753207851 20818 999a50dbf82e1e7320fccc3cc7b7a578 "pdflatex"
-  "main.tex" 1753207831 56649 721ca33e80924ab2bf64a94e2403b82d ""
-  "main.toc" 1753207851 10689 1873a7ec43514852cde20b9c9f29e051 "pdflatex"
+  "c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex" 1753211484 56806 ca4055de0a08c12d193382fd3b59afbb ""
+  "main.aux" 1753211588 20092 904837243f3501316c8ac12a35674e29 "pdflatex"
+  "main.out" 1753211588 20689 30c462d2984c39c990512b5f17bc8045 "pdflatex"
+  "main.tex" 1753211484 56806 ca4055de0a08c12d193382fd3b59afbb ""
+  "main.toc" 1753211588 10601 80a6bfde03d6f827ddcd40288d7d4a04 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
