@@ -1,59 +1,57 @@
 """
-Main_Code.py :: Real-Time Face Detection & Personalized Audio Greeting
-====================================================================
-This standalone script opens your default webcam, detects faces in real time,
-compares them against a small local database of reference images, and—if a
-match is confident enough—greets the recognised person by name through your
-speakers.
+Main_Code.py :: Détection faciale en temps réel & message audio personnalisé
+============================================================================
+Ce script autonome ouvre votre webcam, détecte les visages en temps réel,
+les compare à une petite base locale d’images de référence et, lorsqu’une
+correspondance est suffisamment fiable, salue la personne reconnue par son
+nom via les haut-parleurs.
 
-How it works (high-level):
-  1.   Loads two pre-trained *dlib* models:
-         • `shape_predictor_68_face_landmarks.dat` – facial landmarks.
-         • `dlib_face_recognition_resnet_model_v1.dat` – 128-D face embeddings.
-  2.   Scans every image found in `../IMAGES_FOLDER/` (relative to this file)
-       and builds an **in-memory vector database** of known face encodings plus
-       their labels (the file name without extension).
-  3.   If an audio file `<name>.mp3` is missing in `../AUDIO_FOLDER/`, it
-       auto-generates one using Google-TTS so that each person has their own
-       spoken greeting.
-  4.   Starts capturing frames from a video source (default 0 = first webcam),
-       detects faces, computes their encodings, and finds the closest match in
-       the database. When the best distance is < 0.6 it is considered a match.
-  5.   Draws a bounding box & similarity score on the frame **and** plays the
-       corresponding audio file. A short cooldown prevents the same greeting
-       from looping continuously whilst the face remains in view.
+Fonctionnement (vue d’ensemble) :
+  1.   Charge deux modèles *dlib* pré-entraînés :
+         • `shape_predictor_68_face_landmarks.dat` – repérage des points caractéristiques du visage.
+         • `dlib_face_recognition_resnet_model_v1.dat` – embeddings faciaux en 128 dimensions.
+  2.   Parcourt chaque image trouvée dans `../IMAGES_FOLDER/` (chemin relatif à ce fichier)
+       et construit une **base vectorielle en mémoire** des encodings de visages connus ainsi que
+       leurs étiquettes (nom de fichier sans extension).
+  3.   Si un fichier audio `<name>.mp3` est absent dans `../AUDIO_FOLDER/`, le script
+       en génère automatiquement un via Google-TTS afin que chaque personne dispose de son
+       message vocal de bienvenue.
+  4.   Lance la capture de trames depuis une source vidéo (0 = webcam par défaut),
+       détecte les visages, calcule leurs encodings et cherche la correspondance la plus proche dans
+       la base. Si la meilleure distance est < 0.6, le visage est considéré comme reconnu.
+  5.   Trace un cadre et le score de similarité sur la trame **et** joue
+       le fichier audio correspondant. Un court délai (cooldown) empêche le même message
+       de se répéter en boucle tant que le visage reste à l’écran.
 
-Folder layout (expected):
-  your_project/
+Structure des dossiers (attendue) :
+  votre_projet/
   ├─ Detection/
-  │  ├─ Main_Code.py               # <— you are here
+  │  ├─ Main_Code.py               # <— vous êtes ici
   │  └─ models/
   │     ├─ shape_predictor_68_face_landmarks.dat
   │     └─ dlib_face_recognition_resnet_model_v1.dat
-  ├─ IMAGES_FOLDER/                # Reference faces (e.g. alice.jpg)
-  └─ AUDIO_FOLDER/                 # Optional pre-recorded greetings
+  ├─ IMAGES_FOLDER/                # Visages de référence (ex. alice.jpg)
+  └─ AUDIO_FOLDER/                 # Salutations pré-enregistrées (optionnel)
 
-Quick start
+Démarrage rapide
 -----------
-1.  Install dependencies (ideally in a virtualenv):
+1.  Installez les dépendances (de préférence dans un virtualenv) :
         pip install opencv-python dlib pygame numpy gTTS
-    On Windows you may need the Visual C++ build tools for *dlib*.
-2.  Put at least one face image into `../IMAGES_FOLDER/`, e.g. `bob.jpg`.
-3.  Run the script:
+    Sous Windows, vous aurez peut-être besoin des outils de build Visual C++ pour *dlib*.
+2.  Placez au moins une image de visage dans `../IMAGES_FOLDER/`, par ex. `bob.jpg`.
+3.  Lancez le script :
         python Main_Code.py
-4.  Press **q** in the video window to quit.
+4.  Appuyez sur **q** dans la fenêtre vidéo pour quitter.
 
-Adjustments
+Ajustements
 -----------
-•   Change `VIDEO_SOURCE` to a file path or stream URL to process a video file
-    instead of the webcam.
-•   Tweak `COOLDOWN_SECONDS` and the 0.6 distance threshold to make the system
-    more or less strict.
+•   Modifiez `VIDEO_SOURCE` avec le chemin d’un fichier vidéo ou une URL de flux pour traiter autre chose que la webcam.
+•   Ajustez `COOLDOWN_SECONDS` et le seuil de distance 0.6 pour rendre le système plus ou moins strict.
 
 Author: <your-name-here>
 """
 
-# Install required packages if you haven't:
+# Installez les dépendances si nécessaire :
 # pip install opencv-python dlib pygame numpy pandas gTTS
 
 import cv2
@@ -68,15 +66,15 @@ import pygame
 # --- CONFIGURATION ---
 VIDEO_SOURCE = 0  # 0 for webcam
 
-# Determine project root (one directory up from this script file)
+# Détermine la racine du projet (un dossier au-dessus de ce script)
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-# Paths to the images and audio folders (renamed by the user)
-IMAGES_FOLDER = os.path.join(PROJECT_ROOT, 'IMAGES_FOLDER')  # Folder where images are stored
+# Chemins vers les dossiers images et audio (personnalisables)
+IMAGES_FOLDER = os.path.join(PROJECT_ROOT, 'IMAGES_FOLDER')  # Dossier où sont stockées les images
 COOLDOWN_SECONDS = 5
 AUDIO_FOLDER = os.path.join(PROJECT_ROOT, 'AUDIO_FOLDER')
 
-# --- INITIALIZATION ---
+# --- INITIALISATION ---
 print("Loading known people...")
 
 if not os.path.exists(IMAGES_FOLDER):
@@ -90,19 +88,19 @@ face_detector = dlib.get_frontal_face_detector()
 shape_predictor = dlib.shape_predictor("./models/shape_predictor_68_face_landmarks.dat")
 face_rec_model = dlib.face_recognition_model_v1("./models/dlib_face_recognition_resnet_model_v1.dat")
 
-# --- LOAD PEOPLE FROM IMAGES ---
-# We now build the database of known faces by scanning every image file inside
-# `people_dataset`. The base filename (without extension) is treated as the
-# person's name and is also used to look up (or generate) a corresponding
-# `.mp3` file inside `nicknames_audio`.
+# --- CHARGEMENT DES PERSONNES À PARTIR DES IMAGES ---
+# On construit la base des visages connus en analysant chaque fichier image dans
+# `IMAGES_FOLDER`. Le nom de fichier (sans extension) est utilisé comme
+# nom de la personne et sert également à rechercher (ou générer) le
+# fichier `.mp3` correspondant dans `AUDIO_FOLDER`.
 
-known_encodings = []  # List[np.ndarray] of 128-D face descriptors
-known_names = []      # Parallel list of the person/name for each encoding
+known_encodings = []  # Liste[np.ndarray] de descripteurs faciaux 128-D
+known_names = []      # Liste parallèle des noms associés à chaque encodage
 
 VALID_EXTS = ('.jpg', '.jpeg', '.png', '.bmp', '.gif')
 
 for file_name in os.listdir(IMAGES_FOLDER):
-    # Ignore non-image files
+    # Ignorer les fichiers qui ne sont pas des images
     if not file_name.lower().endswith(VALID_EXTS):
         continue
 
@@ -126,25 +124,25 @@ for file_name in os.listdir(IMAGES_FOLDER):
     known_encodings.append(descriptor)
     known_names.append(name)
 
-    # Ensure an audio file exists for this individual
+    # Vérifie qu’un fichier audio existe pour cette personne
     audio_path = os.path.join(AUDIO_FOLDER, f"{name}.mp3")
     if not os.path.exists(audio_path):
         print(f"Warning: Greeting audio for {name} not found at {audio_path}. This person will be recognised silently.")
 
 print(f"Loaded {len(known_names)} known people.")
 
-# Initialize pygame mixer for audio
+# Initialise le mixer pygame pour l’audio
 pygame.mixer.init()
 
 cooldown = False
 
 # ---------------------------------------------------------------------------
-# Helper functions
+# Fonctions auxiliaires
 # ---------------------------------------------------------------------------
 
-# Function to play sound asynchronously
+# Fonction pour jouer le son de manière asynchrone
 def play_audio_alert(nickname):
-    """Play the pre-generated `<nickname>.mp3` greeting on a background thread."""
+    """Lit la salutation `<nickname>.mp3` sur un thread en arrière-plan."""
     try:
         audio_path = os.path.join(AUDIO_FOLDER, f"{nickname}.mp3")
         pygame.mixer.music.load(audio_path)
@@ -152,72 +150,72 @@ def play_audio_alert(nickname):
     except Exception as e:
         print(f"Failed to play audio for {nickname}: {e}")
 
-# Cooldown management
+# Gestion du cooldown
 def start_cooldown():
-    """Prevent the same name from being announced repeatedly for a few seconds."""
+    """Empêche d’annoncer plusieurs fois le même nom pendant quelques secondes."""
     global cooldown
     cooldown = True
     time.sleep(COOLDOWN_SECONDS)
     cooldown = False
 
-# Start video capture
-print("Starting video stream...")  # Notify user that webcam capture is about to begin
+# Démarre la capture vidéo
+print("Démarrage du flux vidéo …")  # Informe l’utilisateur que la capture webcam va commencer
 video_capture = cv2.VideoCapture(VIDEO_SOURCE)
 
 try:
-    # Infinite processing loop – captures a frame, detects faces, and greets any matches
+    # Boucle de traitement infinie – capture une image, détecte les visages et salue les correspondances
     while True:
-        # Grab a single frame of video; `ret` is False if the capture failed (e.g., camera unplugged)
+        # Capture une image vidéo ; `ret` est False si l’acquisition échoue (ex. caméra déconnectée)
         ret, frame = video_capture.read()
         if not ret:
             print("Failed to capture frame. Exiting.")
             break
 
-        # Convert BGR (OpenCV default) to RGB for dlib compatibility
+        # Convertit BGR (par défaut OpenCV) en RGB pour compatibilité dlib
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        # Detect faces in the current frame (upsample once for better accuracy)
+        # Détecte les visages dans la trame (suréchantillonne une fois pour plus de précision)
         detections = face_detector(rgb_frame, 1)
 
-        # Iterate over every face found in this frame
+        # Parcourt chaque visage détecté dans cette trame
         for det in detections:
             shape = shape_predictor(rgb_frame, det)
-            # Compute a 128-D embedding (face descriptor) for the detected face
+            # Calcule un embedding 128-D (descripteur facial) pour le visage détecté
             face_descriptor = np.array(face_rec_model.compute_face_descriptor(rgb_frame, shape))
 
-            # Calculate Euclidean distance from this face to every known face in the database
+            # Calcule la distance euclidienne entre ce visage et tous les visages connus dans la base
             distances = [np.linalg.norm(face_descriptor - known_encoding) for known_encoding in known_encodings]
             if len(distances) == 0:
                 continue
 
             min_distance_idx = np.argmin(distances)
-            min_distance = distances[min_distance_idx]  # Lowest distance → best match
+            min_distance = distances[min_distance_idx]  # Plus petite distance → meilleure correspondance
 
-            # Consider it a match only if the distance is below the empirical threshold of 0.6
+            # N’accepte la correspondance que si la distance est inférieure au seuil empirique de 0,6
             if min_distance < 0.6:
                 detected_name = known_names[min_distance_idx]
 
-                # Draw rectangle and nickname
-                # Draw a green bounding box around the recognised face
+                # Dessine le rectangle et le nom
+                # Dessine un cadre vert autour du visage reconnu
                 cv2.rectangle(frame, (det.left(), det.top()), (det.right(), det.bottom()), (0, 255, 0), 2)
-                # Write the person's name plus a similarity score above the rectangle
+                # Affiche le nom de la personne et le score de similarité au-dessus du cadre
                 cv2.putText(frame, f"{detected_name} ({1 - min_distance:.2f})", (det.left(), det.top() - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
-                # Play sound if not in cooldown
+                # Joue le son si le cooldown est terminé
                 if not cooldown:
                     threading.Thread(target=play_audio_alert, args=(detected_name,)).start()
                     threading.Thread(target=start_cooldown).start()
 
-        # Display the resulting frame
-        # Show the annotated frame in a window titled "Video"
+        # Affiche la trame résultante
+        # Affiche la trame annotée dans une fenêtre intitulée "Video"
         cv2.imshow('Video', frame)
 
-        # Press 'q' to quit
-        # Exit cleanly when the user presses the letter q
+        # Appuyez sur 'q' pour quitter
+        # Quitte proprement lorsque l’utilisateur appuie sur la touche q
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
 finally:
-    # Release everything
-    video_capture.release()  # Release the webcam hardware
+    # Libération des ressources
+    video_capture.release()  # Libère le périphérique webcam
     cv2.destroyAllWindows()
     print("Video stream stopped.")

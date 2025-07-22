@@ -1,6 +1,6 @@
-PWD c:\Users\jihad.DESKTOP-2OU65DA\Desktop\Face Detection\LaTex
+PWD c:\Users\jihad.DESKTOP-2OU65DA\Desktop\FaceTrack\LaTex
 INPUT C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\jihad.DESKTOP-2OU65DA\Desktop\Face Detection\LaTex\main.tex
+INPUT c:\Users\jihad.DESKTOP-2OU65DA\Desktop\FaceTrack\LaTex\main.tex
 OUTPUT main.log
 INPUT C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls

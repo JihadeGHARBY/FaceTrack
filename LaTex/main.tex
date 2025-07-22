@@ -186,6 +186,34 @@ Le recours prioritaire à des enregistrements vocaux garantit une qualité sonor
 
 Conçu pour fonctionner sur un ordinateur standard, le système reste modulable\,: son optimisation permet un portage vers des plateformes embarquées (\textit{Raspberry Pi}, \textit{Jetson Nano}) et son architecture peut facilement s’étendre à des configurations multi-caméras. Parmi les perspectives d’évolution figure son déploiement dans des espaces à forte affluence — tels que les aéroports — ainsi que l’intégration de modèles de détection plus récents basés sur l’apprentissage profond.
 
+%---------------------------------------------------
+% Problématique
+%---------------------------------------------------
+\section{Problématique}
+
+\subsection{Contexte et justification}
+Les environnements accueillant un grand nombre de visiteurs (entreprises, administrations, salons, infrastructures aéroportuaires) rencontrent régulièrement des difficultés liées à l’orientation du public, à la gestion des files d’attente et au maintien d’une expérience utilisateur fluide. Dans le même temps, les exigences sanitaires post-pandémie encouragent les interactions sans contact, tandis que la réglementation européenne (RGPD) impose un strict respect de la vie privée.
+
+\subsection{Enjeux}
+\begin{itemize}
+  \item \textbf{Réactivité} : proposer une identification et une diffusion d’informations en moins de 100 ms pour garantir une interaction naturelle.
+  \item \textbf{Précision} : maintenir un taux de reconnaissance supérieur à 90 \% malgré les variations d’éclairage et d’apparence.
+  \item \textbf{Confidentialité} : protéger les données biométriques en conformité avec le RGPD via chiffrement et contrôles d’accès stricts.
+  \item \textbf{Scalabilité} : assurer le bon fonctionnement du système en présence de plusieurs flux vidéo simultanés.
+  \item \textbf{Qualité audio} : fournir un message vocal clair, sans latence perceptible, adaptable à la langue du visiteur.
+\end{itemize}
+
+\subsection{Objectifs opérationnels}
+Pour répondre à ces enjeux, notre système vise :
+\begin{enumerate}[label=\alph*)]
+  \item la mise en œuvre d’un pipeline de reconnaissance facial léger et optimisé ;
+  \item la réduction de la latence globale du processus (capture → diffusion audio) à moins de 200 ms ;
+  \item l’emploi d’une base d’audio pré-enregistrés pour garantir une qualité vocale professionnelle ;
+  \item l’intégration d’un mécanisme de consentement explicite et de droit à l’oubli pour chaque utilisateur ;
+  \item la capacité à ajouter de nouveaux profils sans redémarrer le service.
+\end{enumerate}
+
+
 \newpage
 
 \section{État de l'art}
@@ -252,6 +280,26 @@ Le module \textit{Traitement d'Image} dispensé au Master IAE constitue le socle
 \end{enumerate}
 
 Ces étapes illustrent concrètement l'application des concepts étudiés en cours : filtrage spatial, histogramme, détection d'objets, et apprentissage profond. Elles démontrent la synergie entre connaissances académiques et implémentation logicielle dans un système temps réel.
+
+\newpage
+
+%---------------------------------------------------
+% Technologies utilisées
+%---------------------------------------------------
+\section{Technologies utilisées}
+
+Le projet s’appuie sur l’écosystème Python pour accélérer le développement et garantir la disponibilité de bibliothèques éprouvées :
+
+\begin{itemize}
+  \item \textbf{Python 3.8} – langage principal pour la rapidité de prototypage.
+  \item \textbf{OpenCV 4.8.0} – capture vidéo, traitement d’images, détection faciale HOG/CNN.
+  \item \textbf{dlib 19.24.0} – extraction d’embeddings faciaux via ResNet 128-D.
+  \item \textbf{NumPy 1.24.0} – opérations matricielles et calcul scientifique.
+  \item \textbf{pygame 2.5.0} – gestion audio haute performance.
+  \item \textbf{gTTS 2.4.0} – synthèse vocale de secours (génération MP3).
+\end{itemize}
+
+Ces outils garantissent un compromis optimal entre performance, portabilité et facilité de maintenance.
 
 \newpage
 
@@ -343,7 +391,7 @@ L'environnement de développement s'appuie sur Python 3.8+ avec les bibliothèqu
 
 \section{Implémentation}
 
-\subsection{Environnement de développement}
+\section{Implémentation technique}
 
 \subsubsection{Langage de programmation}
 
@@ -720,7 +768,7 @@ Les tests dans différentes conditions d'éclairage (naturel, artificiel, mixte)
 
 \newpage
 
-\section{Limites et perspectives}
+\section{Perspectives futures}
 
 \subsection{Limites actuelles}
 
