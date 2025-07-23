@@ -136,7 +136,7 @@
         \vspace{0.2cm}
         {\large Aziz OUMOUACHA }\\
         \vspace{0.2cm}
-        {\large Mohamed LEMSEIH}
+        {\large Mohammed LEMSEIH}
     \end{minipage}
     \hfill
     \begin{minipage}{0.45\textwidth}
@@ -166,7 +166,7 @@ Ce rapport présente la conception et la réalisation d’un système de reconna
 
 Le système fonctionne selon un workflow simple : capture vidéo en continu, détection des visages, comparaison avec une base de données pré-enregistrée, et diffusion d'un message audio personnalisé accompagné d'un affichage visuel. Une particularité importante est l'utilisation prioritaire de fichiers audio pré-enregistrés ; si ceux-ci sont absents, un MP3 est généré automatiquement par synthèse vocale (gTTS). Cette solution garantit à la fois une excellente qualité audio et l'absence de latence perceptible pour l'utilisateur.
 
-Les tests effectués sur une base de 10 personnes montrent une précision de reconnaissance de 92\% avec un temps de traitement moyen de 45ms par frame. Le système intègre un mécanisme de cooldown de 5 secondes pour éviter les répétitions incessantes. Les perspectives d'amélioration incluent l'optimisation pour des plateformes embarquées comme Jetson Nano et l'extension à un réseau multi-caméras couvrant l'ensemble de l'aéroport.
+Les tests effectués sur une base de 30 personnes montrent une précision de reconnaissance de 92\% avec un temps de traitement moyen de 45ms par frame. Le système intègre un mécanisme de cooldown de 5 secondes pour éviter les répétitions incessantes. Les perspectives d'amélioration incluent l'optimisation pour des plateformes embarquées comme Jetson Nano et l'extension à un réseau multi-caméras couvrant l'ensemble de l'aéroport.
 
 \newpage
 
@@ -922,10 +922,10 @@ Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 r
     \draw [arrow] (match) -- node[anchor=south] {Oui} (audio);
     \draw [arrow] (audio) -- (display);
     \draw [arrow] (face) -- node[anchor=east] {Non} (wait);
-    \draw [arrow] (match) -- node[anchor=east] {Non} (wait);
+    \draw [arrow] (match) -- node[anchor=east] {} (wait);
     \draw [arrow] (wait) -- (quit);
     \draw [arrow] (quit) -- node[anchor=east] {Oui} (stop);
-    \draw [arrow] (quit) -- node[anchor=south] {Non} ++(0,2) -| (capture);
+    \draw [arrow] (quit) -- node[anchor=south] {Non} ++(0,1) -| (capture);
     \draw [arrow] (display) -- ++(-4,0) |- (wait);
 \end{tikzpicture}
 \caption{Diagramme de flux détaillé du système}

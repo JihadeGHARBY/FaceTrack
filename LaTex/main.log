@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  22 JUL 2025 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.17)  22 JUL 2025 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1381,25 +1381,47 @@ Overfull \hbox (3.71179pt too wide) in paragraph at lines 848--849
 
 [24] [25]
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:903: Package pgfkeys Error: I do not know the key '/tikz/ellipse' and I am going to ignore it. Perhaps you misspelled it.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:905: Package pgfkeys Error: I do not know the key '/tikz/ellipse' and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.903     \node [start]
+l.905     \node [start]
                         (start) {Démarrage};
 (That was another \errmessage.)
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:907: Package pgfkeys Error: I do not know the key '/tikz/diamond' and I am going to ignore it. Perhaps you misspelled it.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:906: Package PGF Math Error: Unknown function `of' (in 'of start').
 
-See the pgfkeys package documentation for explanation.
+See the PGF Math package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.907     \node [decision, below of=capture]
-                                             (face) {Visage détecté ?};
+l.906     \node [process, below=of start]
+                                          (init) {Initialisation};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:907: Package PGF Math Error: Unknown function `of' (in 'of init').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.907     \node [process, below=of init]
+                                         (load) {Chargement modèles};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:908: Package PGF Math Error: Unknown function `of' (in 'of load').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.908     \node [process, below=of load]
+                                         (capture) {Capture frame};
 (That was another \errmessage.)
 
 
@@ -1409,8 +1431,41 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.909     \node [decision, below of=encode]
-                                            (match) {Match trouvé ?};
+l.909     \node [decision, below=of capture]
+                                             (face) {Visage détecté ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:909: Package pgfkeys Error: I do not know the key '/tikz/aspect', to which you passed '2', and I am going to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.909     \node [decision, below=of capture]
+                                             (face) {Visage détecté ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:909: Package PGF Math Error: Unknown function `of' (in 'of capture').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.909     \node [decision, below=of capture]
+                                             (face) {Visage détecté ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:912: Package PGF Math Error: Unknown operator `o' or `of' (in '4cm of face').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.912     \node [process, right=4cm of face]
+                                             (encode) {Calcul encoding};
 (That was another \errmessage.)
 
 
@@ -1420,30 +1475,162 @@ See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.913     \node [decision, below of=wait]
-                                          (quit) {Quitter ?};
+l.913     \node [decision, below=of encode]
+                                            (match) {Match trouvé ?};
 (That was another \errmessage.)
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:914: Package pgfkeys Error: I do not know the key '/tikz/ellipse' and I am going to ignore it. Perhaps you misspelled it.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:913: Package pgfkeys Error: I do not know the key '/tikz/aspect', to which you passed '2', and I am going to ignore it. Perhaps you misspelled it.
 
 See the pgfkeys package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.914     \node [end, below of=quit]
+l.913     \node [decision, below=of encode]
+                                            (match) {Match trouvé ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:913: Package PGF Math Error: Unknown function `of' (in 'of encode').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.913     \node [decision, below=of encode]
+                                            (match) {Match trouvé ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:914: Package PGF Math Error: Unknown operator `o' or `of' (in '4cm of match').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.914     \node [process, right=4cm of match]
+                                              (audio) {Lecture audio};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:915: Package PGF Math Error: Unknown function `of' (in 'of audio').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.915     \node [process, below=of audio]
+                                          (display) {Affichage info};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:918: Package PGF Math Error: Unknown function `of' (in 'of face').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.918     \node [process, below=of face]
+                                         (wait) {Attente};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:919: Package pgfkeys Error: I do not know the key '/tikz/diamond' and I am going to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.919     \node [decision, below=of wait]
+                                          (quit) {Quitter ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:919: Package pgfkeys Error: I do not know the key '/tikz/aspect', to which you passed '2', and I am going to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.919     \node [decision, below=of wait]
+                                          (quit) {Quitter ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:919: Package PGF Math Error: Unknown function `of' (in 'of wait').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.919     \node [decision, below=of wait]
+                                          (quit) {Quitter ?};
+(That was another \errmessage.)
+
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:920: Package pgfkeys Error: I do not know the key '/tikz/ellipse' and I am going to ignore it. Perhaps you misspelled it.
+
+See the pgfkeys package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.920     \node [end, below=of quit]
                                      (stop) {Arrêt};
 (That was another \errmessage.)
 
+
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:920: Package PGF Math Error: Unknown function `of' (in 'of quit').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.920     \node [end, below=of quit]
+                                     (stop) {Arrêt};
+(That was another \errmessage.)
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``start''? on input line 923.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``capture''? on input line 925.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``load''? on input line 925.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``face''? on input line 926.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``capture''? on input line 926.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``face''? on input line 929.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``match''? on input line 934.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``audio''? on input line 938.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``wait''? on input line 939.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``quit''? on input line 944.
+
+
+Package pgf Warning: Returning node center instead of a point on node border. Did you specify a point identical to the center of node ``capture''? on input line 944.
+
 [26]
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:947: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:962: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.947 # Paramètres 
+l.962 # Paramètres 
                     de reconnaissance
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1452,13 +1639,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:947: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:962: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.947 # Paramètres 
+l.962 # Paramètres 
                     de reconnaissance
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1467,13 +1654,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:952: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:967: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.952 # Paramètres 
+l.967 # Paramètres 
                     caméra
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1482,13 +1669,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:952: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:967: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.952 # Paramètres 
+l.967 # Paramètres 
                     caméra
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1497,13 +1684,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:952: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:967: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.952 # Paramètres caméra
+l.967 # Paramètres caméra
                            
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1512,13 +1699,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:952: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:967: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.952 # Paramètres caméra
+l.967 # Paramètres caméra
                            
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1527,13 +1714,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:958: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:973: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.958 # Paramètres 
+l.973 # Paramètres 
                     audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1542,13 +1729,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:958: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:973: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.958 # Paramètres 
+l.973 # Paramètres 
                     audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1557,13 +1744,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:980: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:995: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.980     """Gestion des erreurs de caméra"""
+l.995     """Gestion des erreurs de caméra"""
                                               
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1572,13 +1759,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:980: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:995: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.980     """Gestion des erreurs de caméra"""
+l.995     """Gestion des erreurs de caméra"""
                                               
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1587,13 +1774,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981     logging.error("Erreur d'accès 
+l.996     logging.error("Erreur d'accès 
                                          à la caméra")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1602,13 +1789,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981     logging.error("Erreur d'accès 
+l.996     logging.error("Erreur d'accès 
                                          à la caméra")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1617,13 +1804,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981     logging.error("Erreur d'accès à 
+l.996     logging.error("Erreur d'accès à 
                                             la caméra")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1632,13 +1819,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte "A0.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte "A0.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981     logging.error("Erreur d'accès à 
+l.996     logging.error("Erreur d'accès à 
                                             la caméra")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1647,13 +1834,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981 ...ng.error("Erreur d'accès à la caméra")
+l.996 ...ng.error("Erreur d'accès à la caméra")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1662,13 +1849,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:981: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:996: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.981 ...ng.error("Erreur d'accès à la caméra")
+l.996 ...ng.error("Erreur d'accès à la caméra")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1678,14 +1865,14 @@ Alternatively, save the file in UTF-8 using your editor or another tool
 
 [27]
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987                 logging.info("Caméra 
-                                            reconnectée avec succès")
+l.1002                 logging.info("Caméra 
+                                             reconnectée avec succès")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1693,14 +1880,14 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987                 logging.info("Caméra 
-                                            reconnectée avec succès")
+l.1002                 logging.info("Caméra 
+                                             reconnectée avec succès")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1708,13 +1895,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987 ...      logging.info("Caméra reconnectée 
+l.1002 ...     logging.info("Caméra reconnectée 
                                                   avec succès")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1723,13 +1910,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987 ...      logging.info("Caméra reconnectée 
+l.1002 ...     logging.info("Caméra reconnectée 
                                                   avec succès")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1738,13 +1925,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987 ...info("Caméra reconnectée avec succès")
+l.1002 ...nfo("Caméra reconnectée avec succès")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1753,13 +1940,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:987: LaTeX Error: Invalid UTF-8 byte "A8.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1002: LaTeX Error: Invalid UTF-8 byte "A8.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987 ...info("Caméra reconnectée avec succès")
+l.1002 ...nfo("Caméra reconnectée avec succès")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1768,13 +1955,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:990: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1005: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.990 ...ogging.error(f"Tentative {i+1} échouée:
+l.1005 ...gging.error(f"Tentative {i+1} échouée:
                                                    {e}")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1783,13 +1970,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:990: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1005: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.990 ...ogging.error(f"Tentative {i+1} échouée:
+l.1005 ...gging.error(f"Tentative {i+1} échouée:
                                                    {e}")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1798,13 +1985,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:990: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1005: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@EC�).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.990 ...ogging.error(f"Tentative {i+1} échouée:
+l.1005 ...gging.error(f"Tentative {i+1} échouée:
                                                    {e}")
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1813,13 +2000,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:993: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1008: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.993 ...l("Impossible de reconnecter la caméra")
+l.1008 ...("Impossible de reconnecter la caméra")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1828,13 +2015,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:993: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1008: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.993 ...l("Impossible de reconnecter la caméra")
+l.1008 ...("Impossible de reconnecter la caméra")
                                                   
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1848,13 +2035,13 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [29]
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1102: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1117: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1102 aplay -l  # Lister les périphériques 
+l.1117 aplay -l  # Lister les périphériques 
                                               audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1863,13 +2050,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1102: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1117: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1102 aplay -l  # Lister les périphériques 
+l.1117 aplay -l  # Lister les périphériques 
                                               audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1878,13 +2065,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1102: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1117: LaTeX Error: Invalid UTF-8 byte sequence (�\expandafter).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1102 aplay -l  # Lister les périphériques 
+l.1117 aplay -l  # Lister les périphériques 
                                               audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1893,13 +2080,13 @@ in the document preamble.
 Alternatively, save the file in UTF-8 using your editor or another tool
 
 
-c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1102: LaTeX Error: Invalid UTF-8 byte "A9.
+c:/Users/jihad.DESKTOP-2OU65DA/Desktop/FaceTrack/LaTex/main.tex:1117: LaTeX Error: Invalid UTF-8 byte "A9.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1102 aplay -l  # Lister les périphériques 
+l.1117 aplay -l  # Lister les périphériques 
                                               audio
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
@@ -1926,15 +2113,15 @@ Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             After:  30C462D2984C39C990512B5F17BC8045;20689.
  ) 
 Here is how much of TeX's memory you used:
- 33651 strings out of 474485
- 645464 string characters out of 5736182
+ 33658 strings out of 474485
+ 645603 string characters out of 5736182
  2132542 words of memory out of 5000000
- 55108 multiletter control sequences out of 15000+600000
+ 55115 multiletter control sequences out of 15000+600000
  572833 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,87p,991b,2050s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\jihad.DESKTOP-2OU65DA\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/jihad.DESKTOP-2OU65DA/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jihad.DESKTOP-2OU65DA/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jihad.DESKTOP-2OU65DA/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (32 pages, 7336136 bytes).
+Output written on main.pdf (32 pages, 7335919 bytes).
 PDF statistics:
  1175 PDF objects out of 1200 (max. 8388607)
  349 named destinations out of 1000 (max. 500000)
